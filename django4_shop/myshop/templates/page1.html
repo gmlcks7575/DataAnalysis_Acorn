@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function(){
+	document.querySelector("#btnOk").onclick = function(){
+		frm.submit();
+	}
+}
+</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td><img src="/static/images/1010회.png" style="width:30%" title="서둘러!"></td>
+		<td>
+		<pre>
+		이것저것
+		</pre>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<form action="cart" name="frm" method="post"> {% csrf_token %}
+				<input type="hidden" name="name" value="로또">
+				<input type="hidden" name="price" value="5000">
+				<input type="button" id="btnOk" value="장바구니에 물건담기">
+				<input type="button" value="홈으로" onclick="history.back()">
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
