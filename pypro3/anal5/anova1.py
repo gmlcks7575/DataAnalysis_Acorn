@@ -73,7 +73,6 @@ data3.columns = ['만족', '불만족']
 print(data3)
 
 # f통계량을 얻기 위해 회귀분석 모델을 사용
-
 lm = ols('data["score"] ~ C(data["method"])', data = data).fit() # C(독립변수...) : 범주형임을 알림
 table = sm.stats.anova_lm(lm, typ=1)
 print(table) #분산 분석표
