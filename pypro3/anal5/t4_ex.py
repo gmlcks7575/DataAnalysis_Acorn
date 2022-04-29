@@ -41,7 +41,7 @@ try:
     # 등분산성 확인
     print(stats.levene(data1, data2).pvalue) # 0.915044305043978 > 0.05 등분산성 만족
     
-    print(stats.mannwhitneyu(data1, data2)) # pvalue=0.472133 > 0.05 귀무 채택, 연봉의 평균의 차이가 존재한다.
+    print(stats.mannwhitneyu(data1, data2)) # pvalue=0.472133 > 0.05 귀무 채택, 연봉의 평균의 차이가 없다
        
 except Exception as e:
     print('연결 오류:', e)
@@ -54,7 +54,8 @@ except Exception as e:
 
 mid = [80, 75, 85, 50, 60, 75, 45, 70, 90, 95, 85, 80]
 fin = [90, 70, 90, 65, 80, 85, 65, 75, 80, 90, 95, 95]
-
+print(stats.shapiro(mid).pvalue) #0.368144154548645 > 0.05
+print(stats.shapiro(fin).pvalue) #0.19300293922424316 >0.05
 print(np.mean(mid))
 print(np.mean(fin)) # 74.16 vs 81.66
 
