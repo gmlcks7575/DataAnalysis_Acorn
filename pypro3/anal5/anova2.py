@@ -40,8 +40,8 @@ print(stats.levene(gr1,gr2,gr3).pvalue) #0.045846812634186246
 print(stats.bartlett(gr1,gr2,gr3).pvalue) #0.3508032640105389 표본의 수가 적으므로 비모수 검정 방법
 
 # 데이터 분포 시각화
-plt.boxplot([gr1,gr2,gr3])
-plt.show()
+#plt.boxplot([gr1,gr2,gr3])
+#plt.show()
 
 # 일원분산분석 방법1 : anova_lm #statsmodels 제공
 df = pd.DataFrame(data, columns =['pay', 'group'])
