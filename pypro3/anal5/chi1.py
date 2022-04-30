@@ -20,8 +20,8 @@ print(data[(data['공부함']==1) & (data['합격']==1)].shape[0]) # 18
 print(data[(data['공부함']==1) & (data['불합격']==1)].shape[0]) # 7
 
 print('빈도표 ----')
-#ctab = pd.crosstab(index=data['공부함'], columns=data['합격'], margins=True)
-ctab = pd.crosstab(index=data['공부안함'], columns=data['불합격'], margins=True)
+ctab = pd.crosstab(index=data['공부함'], columns=data['합격'], margins=True)
+#ctab = pd.crosstab(index=data['공부안함'], columns=data['불합격'], margins=True)
 ctab.columns = ['합격', '불합격', '행합']
 ctab.index = ['공부함', '공부안함', '열합']
 print(ctab)

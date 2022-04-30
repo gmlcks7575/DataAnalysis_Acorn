@@ -42,14 +42,15 @@ print(data['sumRn'] > 0)
 # data['rain_yn'] = (data['sumRn'] > 0).astype(int) # 비 옴 : 1, 비 안옴 : 0
 # print(data.head(3))
 
-# ㄴprint((True*1, False*1)) 
+# print((True*1, False*1)) 
 data['rain_yn'] = (data.loc[:,('sumRn')] > 0)*1  # 비 옴 : 1, 비 안옴 : 0
 print(data.head(3))
 
 # 시각화
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 sp = np.array(data.iloc[:,[1, 4]])
+print(sp)
 print(sp[:2]) # [[    0     0] [18000     1]]
 tg1 = sp[sp[:,1] == 0, 0] # 비가 안올 때 매출액
 tg2 = sp[sp[:,1] == 1, 0] # 비가 올 때 매출액
