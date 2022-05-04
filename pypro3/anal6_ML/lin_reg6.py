@@ -4,8 +4,6 @@ import statsmodels.formula.api as smf
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from pandas.tests.frame.methods.test_sort_values import ascending
-from networkx.drawing.tests.test_pylab import plt
 plt.rc('font', family = 'malgun gothic')
 
 advdf = pd.read_csv('../testdata/Advertising.csv', usecols = [1,2,3,4])
