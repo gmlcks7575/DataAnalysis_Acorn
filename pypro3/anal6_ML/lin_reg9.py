@@ -11,7 +11,7 @@ print(mtcars.head(3))
 print(mtcars.corr(method='pearson'))
 
 print()
-# 'hp가 mpg에 영향을 준다'라고 가정학호 모델을 생성
+# 'hp가 mpg에 영향을 준다'라고 가정하고 모델을 생성
 x = mtcars[['hp']].values
 print(x[:5])
 y = mtcars['mpg'].values
