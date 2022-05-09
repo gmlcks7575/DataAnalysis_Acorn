@@ -1,4 +1,4 @@
-# 로지스틱 회귀분석
+# 로지스틱 회귀분석(logistic linear regression)
 # 분류 모델 : 이항분류가 기본
 # 독립변수 : 연속형, 종속변수 : 범주형
 # 출력된 연속형 자료를 logit 변환해 sigmoide function 함수로 0~ 1사이의 실수 값이 나오도록 한 후 0.5를 기준으로 분류
@@ -54,3 +54,26 @@ print('정확도3:', accuracy_score(mtcar['am'], np.around(pred2)))
 result2 = smf.glm(formula = formula, data=mtcar, family = sm.families.Binomial()).fit()
 print(result2)
 print(result2.summary())
+pred2 = result2.predict(mtcar[:10])
+
+print('예측값:',np.around(pred2.values))
+print('예측값:',np.rint(pred2.values))
+print('실제값:', mtcar['am'][:10].values)
+pred3 = result.predict(mtcar)
+print('정확도3:', accuracy_score(mtcar['am'], np.around(pred3)))
+
+print('새로운 연비와 마력수에 대한 분류 결과 ---')
+# 1. 기존 값 일부 수정
+newdf = mtcar.iloc[:2].copy()
+print(newdf)
+newdf['mpg'] = [10, 30]
+newdf['hp'] = [100, 130]
+new_pred = result2.predict(newdf)
+print('new_pred:',new_pred.values)
+print('new_pred:',np.around(new_pred.values))
+
+# 2. 별도 작성
+import pandas as pd
+newdf2 = pd.DataFrame({'mpg':[10, 35, 50, 5], 'hp':[80, 100, 120, 50]})
+new_pred2 = result2.predict(newdf2)
+print('new_pred2:',np.around(new_pred2.values))
