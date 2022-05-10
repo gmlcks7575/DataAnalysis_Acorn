@@ -23,6 +23,7 @@ print(y[:3], set(y)) # {0,1,2}
 # train / test split
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state = 0)
 print(x_train.shape, x_test.shape, y_train.shape, y_test.shape) #(105, 2) (45, 2) (105,) (45,)
+
 # # 학습 데이터 크기의 차이가 심하면 스케일링(크기 표준화 또는 정규화)
 # # 독립변수를 스케일링 하면 모델이 안정성, 수렴 속도 향상, 오버플로우/언더플로우 등의 방지에 효과적
 # print(x_train[:3])
@@ -38,8 +39,13 @@ print(x_train.shape, x_test.shape, y_train.shape, y_test.shape) #(105, 2) (45, 2
 # print(inver_x_train[:3])
 
 # model
-model = LogisticRegression(C=100.0, random_state = 0, solver='lbfgs', multi_class='auto') 
+#model = LogisticRegression(C=100.0, random_state = 0, solver='lbfgs', multi_class='auto') 
 # C 속성 : L2 규제 값이 작을수록 더 강한 정규화 규제 진행됨 # solver 기본 lbfgs 소프트맥스지원
+
+from sklearn import tree
+model = tree.DecisionTreeClassifier(criterion = 'entropy',
+                                     max_depth=5,
+                                     random_state = 0) #max_depth에따라 그래프와 정확도가 달라진다.
 print(model)
 model.fit(x_train, y_train) #학습 진행
 
@@ -121,4 +127,21 @@ def plot_decision_region(X, y, classifier, test_idx=None, resolution=0.02, title
     plt.show()
 x_combined_std = np.vstack((x_train, x_test))
 y_combined = np.hstack((y_train, y_test))
-plot_decision_region(X=x_combined_std, y=y_combined, classifier=read_model, test_idx=range(105, 150), title='scikit-learn제공')   
+plot_decision_region(X=x_combined_std, y=y_combined, classifier=read_model, test_idx=range(105, 150), title='scikit-learn제공') 
+
+# tree 형태의 시각화
+import pydotplus
+from io import StringIO #StringIO는 파일처럼 흉낸내는 객체
+
+dot_data = StringIO()
+tree.export_graphviz(read_model, feature_names = iris.feature_names[2:4],
+                                out_file =dot_data, filled = True, rounded = True)
+graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
+
+graph.write_png('tree_iris.png')
+
+from matplotlib.pyplot import imread #imageread
+
+img = imread('tree_iris.png')
+plt.imshow(img)
+plt.show()
