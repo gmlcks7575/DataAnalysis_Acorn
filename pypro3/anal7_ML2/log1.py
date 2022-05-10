@@ -5,7 +5,6 @@
 
 import math
 import numpy as np
-from sklearn.metrics._scorer import accuracy_scorer
 
 def sigmoidFunc(x):
     return 1 / (1 + math.exp(-x))
