@@ -9,7 +9,7 @@ from sklearn.linear_model import LogisticRegression
 import pandas as pd
 import numpy as np
 
-iris = datasets.load_iris()
+iris = datasets.load_iris() # iris불러오기
 #print(iris.DESCR)
 print(iris.keys())
 

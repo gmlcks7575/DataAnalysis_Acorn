@@ -56,7 +56,7 @@ print(cross_vali2)
 print(np.round(np.mean(cross_vali2), 3))
 
 print()
-# 중요 변수 확인
+# 중요 변수 확인 
 import matplotlib.pyplot as plt
 print('특성(변수) 중요도:\n{}'.format(model.feature_importances_))
 
@@ -68,4 +68,4 @@ def plot_feature_importances_func(model):
     plt.ylabel('attr')
     plt.show()
     
-plot_feature_importances_func(model)    
+plot_feature_importances_func(model)   

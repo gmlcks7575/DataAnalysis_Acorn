@@ -48,7 +48,7 @@ import numpy as np
 features = iris.data
 label = iris.target
 dt_clf = DecisionTreeClassifier(criterion = 'entropy', random_state = 0)
-kfold = KFold(n_splits = 5) # 5겹?
+kfold = KFold(n_splits = 5) # 5번 나눈다.
 cv_acc = []
 print('iris shape:', features.shape) # (150, 4)
 # 전체 행 수가 150, 학습데이터 : 4/5(120개), 검증데이터 : 1/5(30개)로 분할해 가며 학습을 진행

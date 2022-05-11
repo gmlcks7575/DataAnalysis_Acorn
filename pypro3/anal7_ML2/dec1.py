@@ -9,7 +9,7 @@ x = [[180,15],[177,42],[156,35],[174,5],[166,33],[170,12],[171,7]]
 y = ['man', 'woman', 'woman', 'man', 'woman', 'man', 'woman']
 label_names = ['height', 'hair length']
 
-model = tree.DecisionTreeClassifier(criterion = 'entropy', random_state = 0)
+model = tree.DecisionTreeClassifier(criterion = 'entropy', random_state = 0)  # criterion은 gini, entropy 2가지가 있다.
 model.fit(x,y)
 pred = model.predict(x)
 print(pred)

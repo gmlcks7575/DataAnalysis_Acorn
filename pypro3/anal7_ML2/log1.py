@@ -24,7 +24,7 @@ mtcars = sm.datasets.get_rdataset('mtcars').data
 print(mtcars.head(3))
 print(mtcars['am'].unique()) # [1 0] 수동 또는 자동
 mtcar = mtcars.loc[:,['mpg','hp','am']]
-
+print(mtcar)
 # 연비와 마력수에 따른 변속기 분류
 # 모델 작성 방법 1 : logit()
 import statsmodels.formula.api as smf
