@@ -18,7 +18,7 @@ data_y = data['quality']
 
 x_train, x_test, y_train, y_test = train_test_split(data_x, data_y, test_size=0.2, random_state=1)
 
-rfmodel = RandomForestClassifier().fit(x_train, y_train)
+rfmodel = RandomForestClassifier(criterion = 'entropy', n_estimators=500).fit(x_train, y_train)
 rfpredict = rfmodel.predict(x_test)
 print('RandomForestClassifier acc : {0:.5f}'.format(accuracy_score(y_test, rfpredict)))
 
