@@ -38,6 +38,3 @@ import numpy as np
 new_input = np.array([[1.1, 2.3, 1.5, 1.5]])
 clu_pred = kmeansModel.predict(new_input)
 print(clu_pred)
-
-import sklearn
-print(sklearn.__version__)

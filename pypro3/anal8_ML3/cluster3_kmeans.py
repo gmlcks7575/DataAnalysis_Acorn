@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 from sklearn.datasets import make_blobs
-x, y = make_blobs(n_samples= 150, n_features = 2, centers = 3, cluster_std = 0.5,
+x, y = make_blobs(n_samples= 150, n_features = 10, centers = 3, cluster_std = 0.5,
                   shuffle = True, random_state = 0)
 
 print(x[:3], x.shape)
