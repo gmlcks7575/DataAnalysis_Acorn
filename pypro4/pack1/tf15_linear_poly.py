@@ -100,7 +100,7 @@ plt.show()
 print('------------비선형 처리2 ----------------')
 # Keras로 네트워크 생성
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(units = 6, activation='relu', input_dim = 3),
+    tf.keras.layers.Dense(units = 6, activation='relu', input_shape = (1,)),
     tf.keras.layers.Dense(units = 1)
 ])
 
