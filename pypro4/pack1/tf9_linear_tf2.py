@@ -4,7 +4,6 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras import optimizers
 import numpy as np
-from panel.widgets import input
 
 x_data = [1.,2.,3.,4.,5.]
 y_data = [1.2,2.0,3.0,3.5,5.5]
