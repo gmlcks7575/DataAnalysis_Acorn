@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from sangpum.models import Maker, Product
+from django.db.models import Sum, Count, Avg, StdDev
 
 # Create your views here.
 def Main(request):
@@ -14,8 +15,15 @@ def List2(request):
     pcount = len(products)
     
     print(Product.objects.all().count())
-    print(products.aggregate(sum('price')))
-
+    
+    for r in products.values_list(): # tuple type으로 모두 출력
+        print(r)
+        
+    print(products.aggregate(Count('price')))
+    print(products.aggregate(Sum('price')))
+    print(products.aggregate(Avg('price')))  
+    print(products.aggregate(StdDev('price')))
+        
     return render(request, 'list2.html', {'products':products, 'pcount':pcount})
 
 def List3(request):
