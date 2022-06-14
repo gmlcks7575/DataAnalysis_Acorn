@@ -24,5 +24,5 @@ urlpatterns = [
     path('gogo/', views.dispFunc, name='disp'), # ~/gogo/
     path('gogo/<int:question_id>/', views.detailFunc, name='detail'), # ~/gogo/2/
     path('gogo/<int:question_id>/vote/', views.voteFunc, name='vote'), # ~/gogo/2/vote
-    path('gogo/<int:question_id>/results/', views.resultFunc, name='vote'),# ~/gogo/2/results
+    path('gogo/<int:question_id>/results/', views.resultFunc, name='results'),# ~/gogo/2/results
 ] 
